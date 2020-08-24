@@ -27,7 +27,7 @@ clinic:
   app:
     jwtSecret: TGltZVdpcmUzMDMwV2FzQUdvb2RBcHA0MDQw
     jwtExpirationMs: 86400000
-    ui-origin: https://d15ju2xcsjey0j.cloudfront.net
+    ui-origins: https://d15ju2xcsjey0j.cloudfront.net, https://clinic-app.mufasa.ca
 logging:
   level:
     org:

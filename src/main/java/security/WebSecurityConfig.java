@@ -34,8 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
-    @Value("${clinic.app.ui-origin}")
-    private String UIOrigin;
+    @Value("${clinic.app.ui-origins}")
+    private String[] UIOrigins;
 
 
     @Bean public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -75,7 +75,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
-        config.setAllowedOrigins(Arrays.asList(UIOrigin));
+        config.setAllowedOrigins(Arrays.asList(UIOrigins));
         config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowCredentials(true);
         config.setAllowedHeaders(Arrays.asList("*"));
