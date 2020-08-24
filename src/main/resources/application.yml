@@ -1,0 +1,54 @@
+server:
+  port: 8083
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+        ddl-auto: create-drop
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  cache:
+    cache-names:
+      - rate-limit-buckets
+    caffeine:
+      spec: maximumSize=100000,expireAfterAccess=3600s
+
+clinic:
+  app:
+    jwtSecret: TGltZVdpcmUzMDMwV2FzQUdvb2RBcHA0MDQw
+    jwtExpirationMs: 86400000
+    ui-origin: https://d15ju2xcsjey0j.cloudfront.net
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+
+
+bucket4j:
+  enabled: true
+  filters:
+  - cache-name: rate-limit-buckets
+    url: .*
+    strategy: first
+    http-response-body: "{ \"status\": 429, \"error\": \"Too Many Requests\", \"message\": \"Too many requests, please try again in a few seconds\" }"
+    rate-limits:
+      - expression: getRemoteAddr()
+        bandwidths:
+        - capacity: 30 
+          time: 1
+          unit: seconds
+
+# demo password: $2a$10$.yPe0ubG3v63GY2q7/5FhOapyX.pjM4v1qnoBToir809Ux76kXcTi
+# user password: $2a$10$LPPZMGgBWjYtWu9XZR/.vO0aOZTY/lDOePPJVbt/CQaU8QQaiU2Yi
