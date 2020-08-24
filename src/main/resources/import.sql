@@ -22,14 +22,14 @@ INSERT INTO VISIT VALUES (3, '2020-08-15', 'Patient is coming back for a follow 
 insert into visit values (4, '2020-05-05', 'Patient came in with concerns about oversized breasts, and would like a reduction surgery.', 15, 3);
 insert into visit values (5, '2020-05-21', 'Post-surgery recovery follow-up', 29, 3);
 
-insert into visit_photos (1, '/patient_images/patients/1/visit/1/image1.png');
-insert into visit_photos (1, '/patient_images/patients/1/visit/1/image2.png');
-insert into visit_photos (1, '/patient_images/patients/1/visit/1/image3.png');
-insert into visit_photos (2, '/patient_images/patients/1/visit/2/image1.png');
-insert into visit_photos (2, '/patient_images/patients/1/visit/2/image2.png');
-insert into visit_photos (3, '/patient_images/patients/1/visit/3/image1.png');
+insert into visit_photos values (1, '/patient_images/patients/1/visit/1/image1.png');
+insert into visit_photos values (1, '/patient_images/patients/1/visit/1/image2.png');
+insert into visit_photos values (1, '/patient_images/patients/1/visit/1/image3.png');
+insert into visit_photos values (2, '/patient_images/patients/1/visit/2/image1.png');
+insert into visit_photos values (2, '/patient_images/patients/1/visit/2/image2.png');
+insert into visit_photos values (3, '/patient_images/patients/1/visit/3/image1.png');
 
-insert into visit_photos (4, '/patient_images/patients/3/visit/4/image1.png');
-insert into visit_photos (4, '/patient_images/patients/3/visit/4/image2.png');
-insert into visit_photos (5, '/patient_images/patients/3/visit/5/image1.png');
-insert into visit_photos (4, '/patient_images/patients/3/visit/5/image2.png');
+insert into visit_photos values (4, '/patient_images/patients/3/visit/4/image1.png');
+insert into visit_photos values (4, '/patient_images/patients/3/visit/4/image2.png');
+insert into visit_photos values (5, '/patient_images/patients/3/visit/5/image1.png');
+insert into visit_photos values (5, '/patient_images/patients/3/visit/5/image2.png');
